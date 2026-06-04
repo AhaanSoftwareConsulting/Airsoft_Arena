@@ -10,7 +10,7 @@ const TacticalMarketplace = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [activeCat, setActiveCat] = useState("all");
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,22 +50,33 @@ const TacticalMarketplace = () => {
             Tactical Marketplace
           </h2>
 
-          <p className="mt-5 text-white text-lg leading-8">
+          <p className="mt-5 text-white text-[20px] leading-8">
             Buy, sell and discover premium airsoft equipment, tactical apparel
             and mission-ready gear from the community.
           </p>
         </div>
 
         {/* Tabs */}
-        <div className="mt-16 border border-[#1d2521] bg-[#0c1110] overflow-x-auto scrollbar-hide">
+        <div
+          className="
+    mt-16
+    border
+    border-[0.5px]
+    border-[#7C876180]
+    bg-[#7C87611A]
+    rounded-[5px]
+    p-[15px]
+    overflow-x-auto
+    scrollbar-hide
+  "
+        >
           <div className="flex min-w-max">
             <button
               onClick={() => setActiveCat("all")}
-              className={`px-7 py-5 uppercase text-sm tracking-wider transition-all ${
-                activeCat === "all"
-                  ? "bg-[#6f8d5c] text-white"
-                  : "text-[#8c8c8c] hover:text-white"
-              }`}
+              className={`px-5 py-3 uppercase text-sm tracking-wider rounded-[5px] transition-all ${activeCat === "all"
+                ? "bg-[#5E7D4D] text-white"
+                : "text-[#8c8c8c] hover:text-white"
+                }`}
             >
               All Products
             </button>
@@ -76,11 +87,22 @@ const TacticalMarketplace = () => {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCat(cat.id)}
-                  className={`px-7 py-5 uppercase text-sm tracking-wider whitespace-nowrap transition-all ${
-                    activeCat === cat.id
-                      ? "bg-[#6f8d5c] text-white"
-                      : "text-[#8c8c8c] hover:text-white"
-                  }`}
+                  className={`
+    px-6.5
+    py-3
+    uppercase
+    text-sm
+    tracking-wider
+    whitespace-nowrap
+    rounded-[5px]
+    cursor-pointer
+    transition-all
+    duration-300
+    ${activeCat === cat.id
+                      ? "bg-[#5E7D4D] text-white"
+                      : "text-[#8c8c8c] hover:text-white hover:bg-[#5E7D4D]/10"
+                    }
+  `}
                 >
                   {cat.name}
                 </button>
@@ -131,7 +153,22 @@ const TacticalMarketplace = () => {
                         className="w-full h-[420px] object-cover transition duration-500 group-hover:scale-105"
                       />
 
-                      <div className="absolute top-4 left-4 bg-[#6f8d5c] text-white text-xs uppercase px-3 py-2">
+                      <div
+                        className="
+    absolute
+    top-4
+    left-0
+    w-[180px]
+    bg-gradient-to-r
+    from-[#7C8761]
+    to-transparent
+    text-white
+    text-xs
+    uppercase
+    px-4
+    py-2
+  "
+                      >
                         {product.acf?.brand_name}
                       </div>
                     </div>

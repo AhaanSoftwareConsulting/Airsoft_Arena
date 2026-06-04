@@ -6,6 +6,7 @@ import { HiChartBar } from "react-icons/hi2";
 import { FiSearch } from "react-icons/fi";
 import AirsoftArenaSubscriptions from "./AirsoftArenaSubscriptions";
 import OperationsContent from "./OperationsContent";
+import OperationsSidebar from "./OperationsSidebar";
 
 const tabs = [
   "ALL OPERATIONS",
@@ -39,12 +40,12 @@ const UpcomingOperations = () => {
 
     {/* CONTENT ROW */}
     <div className="flex flex-col lg:flex-row gap-6 mt-12">
-      <div className="w-full lg:w-[80%]">
+      <div className="w-full md:w-[100%] lg:w-[80%]">
         <OperationsContent />
       </div>
 
-      <div className="w-full lg:w-[20%]">
-        <AirsoftArenaSubscriptions />
+      <div className="w-full md:w-[100%] lg:w-[20%]">
+        <OperationsSidebar />
       </div>
     </div>
   </div>
