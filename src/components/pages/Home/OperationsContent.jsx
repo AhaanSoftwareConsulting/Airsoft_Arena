@@ -66,10 +66,9 @@ const OperationsContent = () => {
 
   return (
     <>
-       {/* TOP BAR */}
-              <div
-                className="
-                  mt-14
+      {/* TOP BAR */}
+      <div
+        className="
                   border
                   border-[#7C876180]
                   bg-[#7C87611A]
@@ -77,18 +76,17 @@ const OperationsContent = () => {
                   p-4
                   flex
                   flex-wrap
-                  gap-4
-                  justify-between
+                  gap-[2px]
                   items-center
                 "
-              >
-                {/* TABS */}
-                <div className="flex flex-wrap gap-3">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={`
+      >
+        {/* TABS */}
+        <div className="flex flex-wrap gap-2">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`
               px-5
               py-3
               text-sm
@@ -99,20 +97,20 @@ const OperationsContent = () => {
               cursor-pointer
       
               ${activeTab === tab
-                          ? "bg-[#5E7D4D] text-white"
-                          : "bg-transparent text-[#8A8A8A] hover:text-white"
-                        }
+                  ? "bg-[#5E7D4D] text-white"
+                  : "bg-transparent text-[#8A8A8A] hover:text-white"
+                }
             `}
-                    >
-                      {tab}
-                    </button>
-                  ))}
-                </div>
-      
-                {/* SEARCH */}
-                <div className="relative w-full md:w-[280px]">
-                  <FiSearch size={25}
-                    className="
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* SEARCH */}
+        <div className="relative w-full xl:w-[200px]">
+          <FiSearch size={18}
+            className="
             absolute
             left-4
             top-1/2
@@ -121,14 +119,14 @@ const OperationsContent = () => {
             text-[18px]
             pointer-events-none
           "
-                  />
-      
-                  <input
-                    type="text"
-                    placeholder="Search operations..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="
+          />
+
+          <input
+            type="text"
+            placeholder="Search operations..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="
           bg-transparent
           border-[0.5px]
           border-white
@@ -141,105 +139,104 @@ const OperationsContent = () => {
           text-white
           placeholder:text-[#7f7f7f]
         "
+          />
+        </div>
+      </div>
+
+      {/* OPERATION CARDS */}
+      <div className="mt-8 space-y-6">
+        {filteredOperations.map((operation) => {
+          const acf = operation.acf;
+
+          return (
+            <div
+              key={operation.id}
+              className="
+          border
+    border-[#28311f]
+    rounded-xl
+    overflow-hidden
+    bg-[#050807]
+    p-[6px]
+        "
+            >
+              <div className="grid lg:grid-cols-[0.9fr_1.2fr_0.7fr]">
+                {/* IMAGE */}
+                <div className="h-full">
+                  <img
+                    src={
+                      operation?._embedded?.["wp:featuredmedia"]?.[0]
+                        ?.source_url
+                    }
+                    alt={operation.title.rendered}
+                    className="
+           w-full
+  h-[285px]
+  object-cover
+  rounded-[8px]
+        "
                   />
                 </div>
-              </div>
-      
-              {/* OPERATION CARDS */}
-              <div className="mt-8 space-y-6">
-                {filteredOperations.map((operation) => {
-                  const acf = operation.acf;
-      
-                  return (
-                    <div
-                      key={operation.id}
-                      className="
-          border
-          border-[#28311f]
-          rounded-2xl
-          overflow-hidden
-          bg-[#050807]
-          p-[10px]
-        "
-                    >
-                      <div className="grid lg:grid-cols-[1.3fr_1fr_0.7fr]">
-                        {/* IMAGE */}
-                        <div className="h-full">
-                          <img
-                            src={
-                              operation?._embedded?.["wp:featuredmedia"]?.[0]
-                                ?.source_url
-                            }
-                            alt={operation.title.rendered}
-                            className="
-          w-full
-          h-full
-          object-cover
-          min-h-[270px]
-          rounded-[10px]
-        "
-                          />
-                        </div>
-      
-                        {/* CONTENT */}
-                        <div
-                          className="
-                            p-6
+
+                {/* CONTENT */}
+                <div
+                  className="
+                            p-4
                             border-t
                             lg:border-t-0
                             border-[#28311f]
                           "
-                        >
-                          {/* SUBTITLE */}
-                          <div className="flex items-center gap-3">
-                            <div className="w-[2px] h-[24px] bg-[#7C8761]" />
-      
-                            <p
-                              className="
+                >
+                  {/* SUBTITLE */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-[2px] h-[24px] bg-[#7C8761]" />
+
+                    <p
+                      className="
           text-[#5E7D4D]
           uppercase
           text-[14px]
           font-semibold
           tracking-widest
         "
-                            >
-                              {acf.operation_subtitle}
-                            </p>
-                          </div>
-      
-                          {/* TITLE */}
-                          <h2
-                            className="
-                              text-4xl
-                              xl:text-5xl
+                    >
+                      {acf.operation_subtitle}
+                    </p>
+                  </div>
+
+                  {/* TITLE */}
+                  <h2
+                    className="
+                              text-2xl xl:text-3xl
                               font-black
                               uppercase
                               mt-3
                               leading-tight
                               text-white
                             "
-                          >
-                            {operation.title.rendered}
-                          </h2>
-      
-                          {/* DESCRIPTION */}
-                          <div
-                            className="
+                  >
+                    {operation.title.rendered}
+                  </h2>
+
+                  {/* DESCRIPTION */}
+                  <div
+                    className="
                               text-[#cfcfcf]
-                              mt-5
-                              leading-8
+  mt-3
+  text-sm
+  leading-6
                             "
-                            dangerouslySetInnerHTML={{
-                              __html: operation.content.rendered,
-                            }}
-                          />
-      
-                          {/* TAGS */}
-                          <div className="flex flex-wrap gap-2 mt-5">
-                            {acf.tags?.split(",").map((tag, index) => (
-                              <span
-                                key={index}
-                                className="
+                    dangerouslySetInnerHTML={{
+                      __html: operation.content.rendered,
+                    }}
+                  />
+
+                  {/* TAGS */}
+                  <div className="flex flex-wrap gap-2 mt-5">
+                    {acf.tags?.split(",").map((tag, index) => (
+                      <span
+                        key={index}
+                        className="
                                     bg-[#445734]
                                     text-[#b8d59f]
                                     px-3
@@ -247,17 +244,17 @@ const OperationsContent = () => {
                                     text-xs
                                     uppercase
                                   "
-                              >
-                                {tag.trim()}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-      
-                        {/* SIDEBAR */}
-                        <div
-                          className="
-                            p-6
+                      >
+                        {tag.trim()}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* SIDEBAR */}
+                <div
+                  className="
+                            p-4
                             border-t
                             lg:border-t-0
                             lg:border-l
@@ -266,48 +263,48 @@ const OperationsContent = () => {
                             flex-col
                             justify-between
                           "
-                        >
-                          {/* DETAILS */}
-                          <div className="space-y-5">
-                            <div className="flex items-center gap-3 text-[#cfcfcf]">
-                              <FaCalendarAlt className="text-[#6f8f57]" />
-      
-                              <span>{formatDate(acf.operation_date)}</span>
-                            </div>
-      
-                            <div className="flex items-center gap-3 text-[#cfcfcf]">
-                              <FaMapMarkerAlt className="text-[#6f8f57]" />
-      
-                              <span>{acf.location}</span>
-                            </div>
-      
-                            <div className="flex items-center gap-3 text-[#cfcfcf] uppercase font-semibold">
-                              <FaLocationCrosshairs className="text-[#6f8f57]" />
-      
-                              <span>{acf.mission_type}</span>
-                            </div>
-      
-                            <div className="flex items-center gap-3 text-[#cfcfcf]">
-                              <FaUsers className="text-[#6f8f57]" />
-      
-                              <span>{acf.operators_count} OPERATORS</span>
-                            </div>
-      
-                            <div className="flex items-center gap-3 text-[#cfcfcf] uppercase font-semibold">
-                              <HiChartBar className="text-[#6f8f57]" />
-      
-                              <span>{acf.difficulty}</span>
-                            </div>
-                          </div>
-      
-                          {/* BUTTONS */}
-                          <div className="space-y-4 mt-8">
-                            <button
-                              className="
+                >
+                  {/* DETAILS */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3 text-[#cfcfcf]">
+                      <FaCalendarAlt className="text-[#6f8f57]" />
+
+                      <span>{formatDate(acf.operation_date)}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 text-[#cfcfcf]">
+                      <FaMapMarkerAlt className="text-[#6f8f57]" />
+
+                      <span>{acf.location}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 text-[#cfcfcf] uppercase font-semibold">
+                      <FaLocationCrosshairs className="text-[#6f8f57]" />
+
+                      <span>{acf.mission_type}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 text-[#cfcfcf]">
+                      <FaUsers className="text-[#6f8f57]" />
+
+                      <span>{acf.operators_count} OPERATORS</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 text-[#cfcfcf] uppercase font-semibold">
+                      <HiChartBar className="text-[#6f8f57]" />
+
+                      <span>{acf.difficulty}</span>
+                    </div>
+                  </div>
+
+                  {/* BUTTONS */}
+                  <div className="space-y-2 mt-2">
+                    <button
+                      className="
                                 w-full
                                 border
                                 border-white
-                                py-4
+                                py-2.5
                                 uppercase
                                 font-semibold
                                 text-white
@@ -315,31 +312,31 @@ const OperationsContent = () => {
                                 hover:text-black
                                 transition-all
                               "
-                            >
-                              {acf.secondary_button_text}
-                            </button>
-      
-                            <button
-                              className="
+                    >
+                      {acf.secondary_button_text}
+                    </button>
+
+                    <button
+                      className="
                                 w-full
                                 bg-[#6f8f57]
-                                py-4
+                                py-2.5
                                 uppercase
                                 font-semibold
                                 text-white
                                 hover:opacity-90
                                 transition-all
                               "
-                            >
-                              {acf.primary_button_text}
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+                    >
+                      {acf.primary_button_text}
+                    </button>
+                  </div>
+                </div>
               </div>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };

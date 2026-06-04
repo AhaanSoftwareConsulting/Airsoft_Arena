@@ -12,12 +12,14 @@ const AirsoftArenaSubscriptions = () => {
   ];
 
   return (
-    <section className="w-full min-h-screen bg-[#0B0D0E] flex items-center justify-center">
+    <section className="w-full flex items-center justify-center">
       <div
         className="
           relative
           w-[350px]
-          h-[350px]
+          h-[302px]
+          lg:h-[200px]
+          xl:h-[230px]
           bg-black
           overflow-hidden
         "
@@ -52,29 +54,31 @@ const AirsoftArenaSubscriptions = () => {
         {/* Radar Sweep */}
         <div
           className="
-            absolute
-            inset-0
-            rounded-full
-            animate-[spin_4s_linear_infinite]
-          "
+    absolute
+    inset-0
+    rounded-full
+    animate-[spin_3s_linear_infinite]
+  "
         >
           <div
             className="
-              absolute
-              top-1/2
-              left-1/2
-              w-1/2
-              h-1/2
-              origin-bottom-left
-              bg-gradient-to-r
-              from-green-500/40
-              via-green-500/20
-              to-transparent
-              rounded-tr-full
-            "
+      absolute
+      left-1/2
+      top-1/2
+      w-[50%]
+      h-[50%]
+      bg-gradient-to-r
+      from-[#5E7D4D]/70
+      via-[#5E7D4D]/30
+      to-transparent
+      origin-bottom-left
+    "
+            style={{
+              clipPath: "polygon(0 100%, 100% 50%, 100% 100%)",
+              transform: "translateY(-100%)",
+            }}
           />
         </div>
-
         {/* Blinking Dots */}
         {dots.map((dot, index) => (
           <span
